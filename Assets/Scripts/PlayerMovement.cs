@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,24 +10,31 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool estaNoChao = true;
     private float velocidadeAtual;
-    private bool estaVivo = true;
+    private bool contato = false;
+    private bool morrer = true;
+    private SistemaDeVida sVida;
     private Vector3 anguloRotacao = new Vector3(0, 90, 0);
     [SerializeField] private float velocidadeAndar;
     [SerializeField] private float velocidadeCorrer;
     [SerializeField] private float forcaPulo;
+    [SerializeField] private TextMeshProUGUI textoPontos;
+    [SerializeField] private int pontosTotais = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        sVida = GetComponent<SistemaDeVida>();
         velocidadeAtual = velocidadeAndar;
+        textoPontos = GameObject.Find("Pontos").GetComponent<TextMeshProUGUI>();
+        textoPontos.text = "0";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (estaVivo)
+        if (sVida.EstaVivo())
         {
             Andar();
             Girar();
@@ -34,7 +43,11 @@ public class PlayerMovement : MonoBehaviour
             Atacar();
             Magia();
         }
-       
+        else if(!sVida.EstaVivo() && morrer)
+        {
+            Morrer();
+        }
+     
     }
 
     private void Andar()
@@ -83,7 +96,14 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
             animator.SetTrigger("Pular");
+            StartCoroutine(TempoPulo());
         }
+    }
+
+    IEnumerator TempoPulo()
+    {   estaNoChao = false;
+        yield return new WaitForSeconds(1.0f);
+        estaNoChao = true;
     }
 
     private void Correr()
@@ -102,9 +122,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Morrer()
     {
+        morrer = false;
         animator.SetBool("EstaVivo", false);
         animator.SetTrigger("Morrer");
-        estaVivo = false;
+        rb.Sleep();
     }
 
     private void Interagir()
@@ -133,7 +154,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-   
+    public void Hit()
+    {
+        animator.SetTrigger("Hit");
+    }
+    IEnumerator ContaPonto()
+    {
+        pontosTotais++;
+        textoPontos.text = pontosTotais.ToString();
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Quebra"))
+        {
+            Atacar();
+            //Destroy(collision.gameObject);
+        }
+    }
 
     private void OnCollisionStay(Collision collision)
     {
@@ -141,11 +180,6 @@ public class PlayerMovement : MonoBehaviour
         {
             estaNoChao = true;
             animator.SetBool("EstaNoChao", true);
-        }
-
-        if(collision.gameObject.CompareTag("Fatal") && estaVivo)
-        {
-            Morrer();
         }
     }
 
@@ -162,7 +196,9 @@ public class PlayerMovement : MonoBehaviour
         if(other.CompareTag("Item") && Input.GetKey(KeyCode.E))
         {
             Pegar();
+            StartCoroutine(ContaPonto());
             Destroy(other.gameObject);
+            
         }
         else if (other.CompareTag("Porta") && Input.GetKey(KeyCode.E))
         {
