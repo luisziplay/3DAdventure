@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool estaNoChao = true;
     private float velocidadeAtual;
-    private bool contato = false;
     private bool morrer = true;
     private SistemaDeVida sVida;
     private Vector3 anguloRotacao = new Vector3(0, 90, 0);
