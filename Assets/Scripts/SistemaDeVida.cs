@@ -8,16 +8,18 @@ public class SistemaDeVida : MonoBehaviour
     private bool estaVivo = true;
     private bool levarDano = true;
     private PlayerMovement pMove;
+    [SerializeField] private TextMeshProUGUI textoVida;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pMove = GetComponent<PlayerMovement>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        AtualizarTextoVida();
     }
 
     public bool EstaVivo()
@@ -40,6 +42,7 @@ public class SistemaDeVida : MonoBehaviour
         {
             pMove.Hit(); //Chama a animacao do metodo Hit do PlayerMoviment 
             vida -= dano;
+            AtualizarTextoVida();
             VerificarVida();
             yield return new WaitForSeconds(0.5f);
             levarDano = true;
@@ -55,4 +58,11 @@ public class SistemaDeVida : MonoBehaviour
             estaVivo = false;
         }
     }
+
+    private void AtualizarTextoVida()
+    {
+        textoVida.text = "Vida: " + vida.ToString();
+    }
+
+
 }
