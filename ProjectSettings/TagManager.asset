@@ -13,6 +13,8 @@ TagManager:
   - Interagir
   - Chave
   - Pontos
+  - Magia
+  - Mana
   layers:
   - Default
   - TransparentFX
