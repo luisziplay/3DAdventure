@@ -13,6 +13,7 @@ public class SistemaDeVida : MonoBehaviour
     private bool levarDano = true;
     private PlayerMovement pMove;
     private bool podeRecarregarMana = true;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,11 +78,13 @@ public class SistemaDeVida : MonoBehaviour
         }
     }
 
+
+
     public void UsarMana()
     {
         mana -= 10;
         manaIndicador.value = mana;
-        if(podeRecarregarMana)
+        if (podeRecarregarMana)
         {
             StartCoroutine("RecarregaMana");
         }

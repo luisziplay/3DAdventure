@@ -1602,6 +1602,7 @@ GameObject:
   - component: {fileID: 2073797631189367985}
   - component: {fileID: 63702295726688195}
   - component: {fileID: 2635375993506987927}
+  - component: {fileID: 9198045474314051035}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -1739,6 +1740,21 @@ MonoBehaviour:
   magiaPreFab: {fileID: 8909604343597518734, guid: 59a2fc60029cb1b4b87b89e297a998be, type: 3}
   miraMagia: {fileID: 4562866743198848941}
   forcaArremeco: 20
+--- !u!114 &9198045474314051035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552160078491477521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f328dc71a2e85a4fb458af56d649e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteInterface: {fileID: 0}
+  textoAviso: {fileID: 0}
+  tempoExibir: 0
 --- !u!1 &4560240487942897511
 GameObject:
   m_ObjectHideFlags: 0

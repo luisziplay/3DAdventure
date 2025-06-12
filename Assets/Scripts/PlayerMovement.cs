@@ -12,9 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private bool contato = false;
     private bool morrer = true;
     private SistemaDeVida sVida;
+    private SistemaInterativo sInterativo;
     private Vector3 anguloRotacao = new Vector3(0, 90, 0);
     private bool temChave = false;
     private int numeroChave = 0;
+    private bool temMana = true;
+    private bool estaFechada = false;
     [SerializeField] private float velocidadeAndar;
     [SerializeField] private float velocidadeCorrer;
     [SerializeField] private float forcaPulo;
@@ -27,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        sInterativo = GetComponent<SistemaInterativo>();
         sVida = GetComponent<SistemaDeVida>();
         velocidadeAtual = velocidadeAndar;
     }
@@ -147,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         //}
     }
 
-    private void Magia()
+    public void Magia()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -156,16 +160,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     IEnumerator LancarMagia()
     {
-
-        yield return new WaitForSeconds(0.5f);
-        GameObject magia = Instantiate(magiaPreFab, miraMagia.transform.position, miraMagia.transform.rotation);
-        //magia.transform.rotation *= Quaternion.Euler(0, -90, 0); //Machado
-        magia.transform.rotation *= Quaternion.Euler(90, 0, 180); //Flecha
-        Rigidbody rbMagia = magia.GetComponentInChildren<Rigidbody>();
-        rbMagia.AddForce(miraMagia.transform.forward * forcaArremeco, ForceMode.Impulse);
-        sVida.UsarMana();
+        if (temMana)
+        {
+            yield return new WaitForSeconds(0.5f);
+            GameObject magia = Instantiate(magiaPreFab, miraMagia.transform.position, miraMagia.transform.rotation);
+            //magia.transform.rotation *= Quaternion.Euler(0, -90, 0); //Machado
+            magia.transform.rotation *= Quaternion.Euler(90, 0, 180); //Flecha
+            Rigidbody rbMagia = magia.GetComponentInChildren<Rigidbody>();
+            rbMagia.AddForce(miraMagia.transform.forward * forcaArremeco, ForceMode.Impulse);
+            sVida.UsarMana();
+        }
     }
 
     public void Hit()
@@ -229,14 +236,31 @@ public class PlayerMovement : MonoBehaviour
         {
             if(other.gameObject.GetComponent<Porta>().EstaTrancada())
             {
+                estaFechada = false;
                 Interagir();
                 other.gameObject.GetComponent<Porta>().AbrirPorta(numeroChave);
+                estaFechada = true;
+            }
+            else if (!other.gameObject.GetComponent<Porta>().EstaTrancada())
+            {
+                estaFechada = false;
+                Interagir();
+                other.gameObject.GetComponent<Porta>().AbrirPorta();
+                estaFechada = true;
+            }    
+        }
+        else if (other.CompareTag("Porta") && Input.GetKey(KeyCode.E) && estaFechada)
+        {
+            if (other.gameObject.GetComponent<Porta>().EstaTrancada())
+            {
+                Interagir();
+                other.gameObject.GetComponent<Porta>().FechaPorta();
             }
             else if (!other.gameObject.GetComponent<Porta>().EstaTrancada())
             {
                 Interagir();
-                other.gameObject.GetComponent<Porta>().AbrirPorta();
-            }    
+                other.gameObject.GetComponent<Porta>().FechaPorta();
+            }
         }
         else if (other.CompareTag("Chave") && Input.GetKey(KeyCode.E))
         {
@@ -246,4 +270,6 @@ public class PlayerMovement : MonoBehaviour
             other.gameObject.GetComponent<Chave>().PegarChave();
         }
     }
+
+
 }

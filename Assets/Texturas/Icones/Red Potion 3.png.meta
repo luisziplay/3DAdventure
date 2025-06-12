@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 880047aede91029489e095014c15b211
+guid: 9af7451fe7505ff40b05130d53152854
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asset 60@2x_0
+      name: Red Potion 3_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 850
-        height: 1024
+        x: 1
+        y: 1
+        width: 29
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,8 +138,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e83a8db16a9abe745a994f69a439c61e
-      internalID: 1259372731
+      spriteID: 46561cd97b7b0144fb984f639e68383e
+      internalID: -1897245967
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 35b2e3d79cbfc604280597dae22cf08a
+    spriteID: bec14f900aabc9f4bb4864aa2bda1272
     internalID: 0
     vertices: []
     indices: 
@@ -158,7 +158,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Asset 60@2x_0: 1259372731
+      Red Potion 3_0: -1897245967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
