@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6787832466859053480}
   - component: {fileID: 4548820375541694509}
   - component: {fileID: 2429576364308404402}
+  - component: {fileID: -7569711381639009600}
   m_Layer: 0
   m_Name: Garrafa (Vida)
   m_TagString: Vida
@@ -131,3 +132,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1806728981814735395, guid: 6f6659830ec2e124cbba137212a89b20, type: 3}
+--- !u!114 &-7569711381639009600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4986546754457497725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef4e15c36863a24e87dcb6e76bccba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avisoTexto: 'Uma garrafa de Vida!
+
+    Pressione "E"'
+  spriteAviso: {fileID: -1897245967, guid: 9af7451fe7505ff40b05130d53152854, type: 3}
+  corAviso: {r: 0.9528302, g: 0.9349404, b: 0.9303578, a: 1}

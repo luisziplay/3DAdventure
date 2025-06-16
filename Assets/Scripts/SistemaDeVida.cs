@@ -78,11 +78,21 @@ public class SistemaDeVida : MonoBehaviour
         }
     }
 
+    private void VerificaMana()
+    {
+        if (mana < 1)
+        {
+            mana = 0;
+            pMove.TemMana();
+        }
+    }
+
 
 
     public void UsarMana()
     {
         mana -= 10;
+        VerificaMana();
         manaIndicador.value = mana;
         if (podeRecarregarMana)
         {

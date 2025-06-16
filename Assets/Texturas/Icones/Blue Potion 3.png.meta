@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf5dd523452383846b7b1a2e7485d62b
+guid: dccd9cca0ad37bd4e8722f5138ed5238
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,9 +70,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ham_0
+      name: Blue Potion 3_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4
-        width: 32
-        height: 24
+        x: 1
+        y: 1
+        width: 29
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,8 +138,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8f1e7f2b9306a64588465bd2299bdcc
-      internalID: 1123765551
+      spriteID: 6a6b90a3f70e97f4f94b371035b52523
+      internalID: -577344887
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 686174e0122beaa49a1e29c2793d3ea8
+    spriteID: 1344048e5658ce142bd916b6afad072a
     internalID: 0
     vertices: []
     indices: 
@@ -158,7 +158,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ham_0: 1123765551
+      Blue Potion 3_0: -577344887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

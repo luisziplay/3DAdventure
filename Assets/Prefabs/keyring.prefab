@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2678885683814468653}
   - component: {fileID: 4522408489863645788}
   - component: {fileID: 7202937498660368158}
+  - component: {fileID: 5104428589100289675}
   m_Layer: 0
   m_Name: keyring
   m_TagString: Chave
@@ -139,3 +140,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5688906598966959407, guid: 0ccd96b0d74c84048bad81433289e706, type: 3}
+--- !u!65 &5104428589100289675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311663741405390955}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.031003, y: 0.2613786, z: 1.2093489}
+  m_Center: {x: -0.068401396, y: 0.11081463, z: -0.06739038}

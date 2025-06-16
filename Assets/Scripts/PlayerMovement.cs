@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float velocidadeCorrer;
     [SerializeField] private float forcaPulo;
     [SerializeField] private GameObject magiaPreFab;
+    [SerializeField] private GameObject quebraPreFab;
     [SerializeField] private GameObject miraMagia;
     [SerializeField] private int forcaArremeco;
 
@@ -44,12 +45,16 @@ public class PlayerMovement : MonoBehaviour
             Girar();
             Pular();
             Correr();
-            //Atacar();
             Magia();
         }
         else if(!sVida.EstaVivo() && morrer)
         {
             Morrer();
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            contato = true;
         }
     }
 
@@ -103,12 +108,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void TemMana()
+    {
+        temMana = false;
+        //if (sVida.CargaMana()) ;
+    }
+
     IEnumerator TempoPulo()
     {
         estaNoChao = false;
         yield return new WaitForSeconds(1.5f);
         estaNoChao = true;
-
     }
 
     private void Correr()
@@ -143,12 +153,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Pegar");
     }
 
-    private void Atacar()
+    private int Atacar()
     {
-        //if(Input.GetMouseButtonDown(0))
-        //{
-            animator.SetTrigger("Atacar");
-        //}
+        animator.SetTrigger("Atacar");
+        Instantiate(quebraPreFab, miraMagia.transform.position, miraMagia.transform.rotation);
+        contato = false;
+        return 10;
     }
 
     public void Magia()
@@ -178,14 +188,6 @@ public class PlayerMovement : MonoBehaviour
     public void Hit()
     {
         animator.SetTrigger("Hit");
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Quebra"))
-        {
-            Atacar();
-        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -269,7 +271,12 @@ public class PlayerMovement : MonoBehaviour
             numeroChave = other.gameObject.GetComponent<Chave>().NumeroPorta();
             other.gameObject.GetComponent<Chave>().PegarChave();
         }
+        if (other.gameObject.CompareTag("Quebra"))
+        {
+            if(contato)
+            {
+                other.gameObject.GetComponent<ObjetoQuebra>().Quebrar(Atacar());
+            }
+        }
     }
-
-
 }

@@ -67,6 +67,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7957740079010674934, guid: 060c3d94ef6344046af3fb82ecdb701c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5913187118589437354}
+    - targetCorrespondingSourceObject: {fileID: 7957740079010674934, guid: 060c3d94ef6344046af3fb82ecdb701c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5902608907920679001}
   m_SourcePrefab: {fileID: 100100000, guid: 060c3d94ef6344046af3fb82ecdb701c, type: 3}
 --- !u!1 &585453593658134935 stripped
 GameObject:
@@ -95,3 +98,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1806728981814735395, guid: 6f6659830ec2e124cbba137212a89b20, type: 3}
+--- !u!114 &5902608907920679001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585453593658134935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef4e15c36863a24e87dcb6e76bccba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avisoTexto: 'Uma garrafa de Vida!
+
+    Pressione "E"'
+  spriteAviso: {fileID: -577344887, guid: dccd9cca0ad37bd4e8722f5138ed5238, type: 3}
+  corAviso: {r: 0.9528302, g: 0.9349404, b: 0.9303578, a: 1}
