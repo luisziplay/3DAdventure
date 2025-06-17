@@ -108,12 +108,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void TemMana()
-    {
-        temMana = false;
-        //if (sVida.CargaMana()) ;
-    }
-
     IEnumerator TempoPulo()
     {
         estaNoChao = false;
@@ -185,6 +179,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //private void Gira()
+    //{
+    //    playerPreFab.transform.rotation *= Quaternion.LookRotation(Vector2.right);
+    //}
+    public void TemMana()
+    {
+        temMana = false;
+    }
+
+    public void ComandoMana()
+    {
+        temMana = true;
+    }
     public void Hit()
     {
         animator.SetTrigger("Hit");
@@ -214,10 +221,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Quebra"))
         {
-            
             contato = false;
         }
-
     }
 
     private void OnTriggerStay(Collider other)

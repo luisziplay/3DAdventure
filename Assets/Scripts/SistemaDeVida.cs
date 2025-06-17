@@ -38,7 +38,7 @@ public class SistemaDeVida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        VerificaMana();
     }
 
     public bool EstaVivo()
@@ -80,24 +80,28 @@ public class SistemaDeVida : MonoBehaviour
 
     private void VerificaMana()
     {
-        if (mana < 1)
+        if (mana > 1 )
         {
-            mana = 0;
-            pMove.TemMana();
+            pMove.ComandoMana();
         }
     }
-
-
 
     public void UsarMana()
     {
         mana -= 10;
         VerificaMana();
         manaIndicador.value = mana;
-        if (podeRecarregarMana)
+
+
+        if (mana < 1)
         {
-            StartCoroutine("RecarregaMana");
+            mana = 0;
+            pMove.TemMana();
         }
+        //if (podeRecarregarMana)
+        //{
+        //    StartCoroutine("RecarregaMana");
+        //}
     }
 
     public int GetMana()
@@ -127,16 +131,16 @@ public class SistemaDeVida : MonoBehaviour
         }
     }
 
-    IEnumerable RecarregaMana()
-    {
-        podeRecarregarMana = false;
-        while (mana < 100)
-        {
-            mana += 5;
-            manaIndicador.value = mana;
-            yield return new WaitForSeconds(0.1f);
-        }
-        mana = 100;
-        podeRecarregarMana = true;
-    }
+    //IEnumerable RecarregaMana()
+    //{
+    //    podeRecarregarMana = false;
+    //    while (mana < 100)
+    //    {
+    //        mana += 5;
+    //        manaIndicador.value = mana;
+    //        yield return new WaitForSeconds(0.1f);
+    //    }
+    //    mana = 100;
+    //    podeRecarregarMana = true;
+    //}
 }

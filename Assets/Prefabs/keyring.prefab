@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avisoTexto: Pressione "E" para coletar
   spriteAviso: {fileID: -972957985, guid: 0ad06c85b1d889d418b65d5412f4929d, type: 3}
-  corAviso: {r: 1, g: 0.50675887, b: 0, a: 0}
+  corAviso: {r: 1, g: 0.50675887, b: 0, a: 1}
 --- !u!64 &7202937498660368158
 MeshCollider:
   m_ObjectHideFlags: 0
