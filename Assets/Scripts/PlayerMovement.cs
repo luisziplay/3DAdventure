@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -25,10 +26,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject quebraPreFab;
     [SerializeField] private GameObject miraMagia;
     [SerializeField] private int forcaArremeco;
+    [SerializeField] private CinemachineCamera cineCamera;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        DontDestroyOnLoad(this);
+        ProcuraReferencias();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         sInterativo = GetComponent<SistemaInterativo>();
@@ -56,8 +60,25 @@ public class PlayerMovement : MonoBehaviour
         {
             contato = true;
         }
+
+        ProcuraReferencias();
     }
 
+    private void ProcuraReferencias()
+    {
+       
+        if (cineCamera ==  null)
+        {
+            transform.position = GameObject.Find("StartPoint").transform.position;
+            cineCamera = GameObject.Find("CinemachineCamera").GetComponent<CinemachineCamera>();
+            cineCamera.Follow = this.gameObject.transform;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        
+    }
     private void Andar()
     {
         inputV = Input.GetAxis("Vertical");
