@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,13 +20,18 @@ public class PlayerMovement : MonoBehaviour
     private int numeroChave = 0;
     private bool temMana = true;
     private bool estaFechada = false;
+    private bool dashe = true;
     [SerializeField] private float velocidadeAndar;
     [SerializeField] private float velocidadeCorrer;
     [SerializeField] private float forcaPulo;
     [SerializeField] private GameObject magiaPreFab;
     [SerializeField] private GameObject quebraPreFab;
     [SerializeField] private GameObject miraMagia;
+    [SerializeField] private GameObject efeitoDashPreFab;
+    [SerializeField] private GameObject miraEfeitoDash;
     [SerializeField] private int forcaArremeco;
+    [SerializeField] private float forcaDash;
+    [SerializeField] private float tempoDeDash;
     [SerializeField] private CinemachineCamera cineCamera;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
             Pular();
             Correr();
             Magia();
+            StartCoroutine(Dash());
         }
         else if(!sVida.EstaVivo() && morrer)
         {
@@ -150,6 +157,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    IEnumerator Dash()
+    {
+        if (Input.GetMouseButtonDown(3) && dashe)
+        {        
+            inputH = Input.GetAxis("Horizontal");
+            Quaternion q = transform.rotation;
+            Vector3 dash = this.transform.forward * forcaDash;
+            this.rb.AddForce(dash, ForceMode.Impulse);
+            GameObject efeitoDash = Instantiate(efeitoDashPreFab, miraEfeitoDash.transform.position, miraEfeitoDash.transform.rotation);
+            dashe = false;
+            yield return new WaitForSeconds(5f);
+            dashe = true;
+        }
+    }
+
+
+
     private void Morrer()
     {
         morrer = false;
@@ -185,7 +209,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     IEnumerator LancarMagia()
     {
         if (temMana)
@@ -200,10 +223,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //private void Gira()
-    //{
-    //    playerPreFab.transform.rotation *= Quaternion.LookRotation(Vector2.right);
-    //}
     public void TemMana()
     {
         temMana = false;

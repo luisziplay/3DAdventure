@@ -4351,6 +4351,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480899946}
   m_CullTransparentMesh: 1
+--- !u!1 &481566935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4791370814464174014, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
+  m_PrefabInstance: {fileID: 877806503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &481828152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8479,8 +8484,16 @@ PrefabInstance:
       value: 1.1126684
       objectReference: {fileID: 0}
     - target: {fileID: 2635375993506987927, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
+      propertyPath: forcaDash
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635375993506987927, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
       propertyPath: cineCamera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635375993506987927, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
+      propertyPath: tempoDeDash
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2635375993506987927, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
       propertyPath: playerPreFab
@@ -8490,6 +8503,14 @@ PrefabInstance:
       propertyPath: quebraPreFab
       value: 
       objectReference: {fileID: 3400813547834974276, guid: b54f08316e2245143be53fdc52a90d5b, type: 3}
+    - target: {fileID: 2635375993506987927, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
+      propertyPath: miraEfeitoDash
+      value: 
+      objectReference: {fileID: 481566935}
+    - target: {fileID: 2635375993506987927, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
+      propertyPath: efeitoDashPreFab
+      value: 
+      objectReference: {fileID: 1412958501236441724, guid: cf601cb2097d1da47bf11e642ec2f800, type: 3}
     - target: {fileID: 3776081188264000683, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.48354283
@@ -8547,7 +8568,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 650928241}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4562866743198848941, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7983931566417000053, guid: ed316eeaa2ff2604893388cf59dc032a, type: 3}

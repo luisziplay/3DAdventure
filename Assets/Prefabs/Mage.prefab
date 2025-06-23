@@ -1623,7 +1623,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2409029061572829282}
   - {fileID: 1040712420503532392}
   - {fileID: 4807785337135853493}
   - {fileID: 1860028690624774550}
@@ -1740,8 +1739,13 @@ MonoBehaviour:
   forcaPulo: 250
   magiaPreFab: {fileID: 8909604343597518734, guid: 59a2fc60029cb1b4b87b89e297a998be, type: 3}
   quebraPreFab: {fileID: 3400813547834974276, guid: b54f08316e2245143be53fdc52a90d5b, type: 3}
-  miraMagia: {fileID: 4562866743198848941}
+  miraMagia: {fileID: 4791370814464174014}
+  efeitoDashPreFab: {fileID: 1412958501236441724, guid: cf601cb2097d1da47bf11e642ec2f800, type: 3}
+  miraEfeitoDash: {fileID: 4791370814464174014}
   forcaArremeco: 20
+  forcaDash: 0
+  tempoDeDash: 0
+  cineCamera: {fileID: 0}
 --- !u!114 &9198045474314051035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,37 +1800,6 @@ Transform:
   - {fileID: 7295160477020765195}
   - {fileID: 6851181497531969708}
   m_Father: {fileID: 862021781664428672}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4562866743198848941
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2409029061572829282}
-  m_Layer: 0
-  m_Name: Mira
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2409029061572829282
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4562866743198848941}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0015716553, y: 1.59, z: 0.8973942}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3776081188264000683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4791370814464174014
 GameObject:
@@ -2409,6 +2382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5642341782230294464}
   - component: {fileID: 6166347526850884414}
+  - component: {fileID: 4953671761456035668}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -2496,6 +2470,29 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &4953671761456035668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983931566417000053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &8143965643199321795
 GameObject:
   m_ObjectHideFlags: 0
