@@ -60,7 +60,7 @@ AnimatorController:
   m_Name: Image 1
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: MudaFase
+  - m_Name: MudarFase
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -88,7 +88,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: MudaFase
+    m_ConditionEvent: MudarFase
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -9018017368952958486}

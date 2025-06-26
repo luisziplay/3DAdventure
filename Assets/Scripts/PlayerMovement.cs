@@ -166,8 +166,10 @@ public class PlayerMovement : MonoBehaviour
             Vector3 dash = this.transform.forward * forcaDash;
             this.rb.AddForce(dash, ForceMode.Impulse);
             GameObject efeitoDash = Instantiate(efeitoDashPreFab, miraEfeitoDash.transform.position, miraEfeitoDash.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Destroy(efeitoDash);
             dashe = false;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
             dashe = true;
         }
     }
