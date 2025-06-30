@@ -8,4 +8,8 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(nomeCena);    
     }
+    public void Voltar()
+    {
+        SceneManager.LoadScene(nomeCena);
+    }
 }
